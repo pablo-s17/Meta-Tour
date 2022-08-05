@@ -8,6 +8,7 @@
 import CoreFoundation
 import Foundation
 
+//just a page where constants can be stored and transfered between classes
 struct BRUH {
     static var BRUH = [[[Double]]]()
     static var videos = [Data]()

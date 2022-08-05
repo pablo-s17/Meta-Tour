@@ -7,6 +7,7 @@
 
 import UIKit
 
+    // creates a popup after the tour is complete to tell the user that the tour is complete and gives them the link to the website
 class PopUpVC: UIViewController {
     
     override func viewDidLoad() {

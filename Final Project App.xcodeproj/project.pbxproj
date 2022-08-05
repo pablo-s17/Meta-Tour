@@ -15,8 +15,6 @@
 		F72F47DC28888738006BC9BB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F72F47DB28888738006BC9BB /* Assets.xcassets */; };
 		F72F47DF28888738006BC9BB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F72F47DD28888738006BC9BB /* LaunchScreen.storyboard */; };
 		F73DA64228888EA40074087A /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = F73DA64128888EA40074087A /* Constants.swift */; };
-		F73E45B12897105100145312 /* TestCamera.swift in Sources */ = {isa = PBXBuildFile; fileRef = F73E45B02897105100145312 /* TestCamera.swift */; };
-		F77135E3288F75E000048D88 /* CameraVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F77135E2288F75E000048D88 /* CameraVC.swift */; };
 		F7B9BBCC289B68C200428C07 /* DataUpload.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7B9BBCB289B68C200428C07 /* DataUpload.swift */; };
 		F7DCCD222894CFC3009FC707 /* PopUpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7DCCD212894CFC3009FC707 /* PopUpVC.swift */; };
 		F7F198232899F88F00C78AA7 /* VideoMP4Encoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7F198222899F88F00C78AA7 /* VideoMP4Encoder.swift */; };
@@ -34,8 +32,6 @@
 		F72F47DE28888738006BC9BB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F72F47E028888738006BC9BB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F73DA64128888EA40074087A /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
-		F73E45B02897105100145312 /* TestCamera.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestCamera.swift; sourceTree = "<group>"; };
-		F77135E2288F75E000048D88 /* CameraVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraVC.swift; sourceTree = "<group>"; };
 		F7B9BBCB289B68C200428C07 /* DataUpload.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataUpload.swift; sourceTree = "<group>"; };
 		F7DCCD212894CFC3009FC707 /* PopUpVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopUpVC.swift; sourceTree = "<group>"; };
 		F7F198222899F88F00C78AA7 /* VideoMP4Encoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoMP4Encoder.swift; sourceTree = "<group>"; };
@@ -79,9 +75,7 @@
 				F73DA64128888EA40074087A /* Constants.swift */,
 				F72F47D82888872A006BC9BB /* Main.storyboard */,
 				F7F19824289A12B600C78AA7 /* CameraVCNew.swift */,
-				F73E45B02897105100145312 /* TestCamera.swift */,
 				F7DCCD212894CFC3009FC707 /* PopUpVC.swift */,
-				F77135E2288F75E000048D88 /* CameraVC.swift */,
 				F7F198222899F88F00C78AA7 /* VideoMP4Encoder.swift */,
 				F72D0874288E0CC900DF4474 /* WalkingVC.swift */,
 				F72F47DB28888738006BC9BB /* Assets.xcassets */,
@@ -163,9 +157,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F72D0875288E0CC900DF4474 /* WalkingVC.swift in Sources */,
-				F77135E3288F75E000048D88 /* CameraVC.swift in Sources */,
 				F72F47D72888872A006BC9BB /* InitialVC.swift in Sources */,
-				F73E45B12897105100145312 /* TestCamera.swift in Sources */,
 				F7F19825289A12B600C78AA7 /* CameraVCNew.swift in Sources */,
 				F72F47D32888872A006BC9BB /* AppDelegate.swift in Sources */,
 				F7F198232899F88F00C78AA7 /* VideoMP4Encoder.swift in Sources */,
@@ -322,6 +314,9 @@
 				DEVELOPMENT_TEAM = 7VNK2GBHP4;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Final Project App/Info.plist";
+				INFOPLIST_KEY_NSCameraUsageDescription = "To take a Video";
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "To take a Video";
+				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "To save a Video";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -332,7 +327,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 0.1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.pablosegovia.Final-Project-App";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -351,6 +346,9 @@
 				DEVELOPMENT_TEAM = 7VNK2GBHP4;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Final Project App/Info.plist";
+				INFOPLIST_KEY_NSCameraUsageDescription = "To take a Video";
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "To take a Video";
+				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "To save a Video";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -361,7 +359,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 0.1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.pablosegovia.Final-Project-App";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;

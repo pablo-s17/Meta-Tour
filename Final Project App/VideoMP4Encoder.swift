@@ -8,6 +8,7 @@
 import Foundation
 import AVFoundation
 
+//encodes video to mp4 - a lot of code was researched so can't write accurate comments
 func encodeVideo(videoURL: URL){
     let avAsset = AVURLAsset(url: videoURL)
     let startDate = Date()
@@ -44,15 +45,18 @@ func encodeVideo(videoURL: URL){
         case .cancelled:
             print("Export cancelled")
         case .completed:
+            //if the encoder performed correctly
             let endDate = Date()
             let time = endDate.timeIntervalSince(startDate)
             print(time)
             print("Successful")
             print(exportSession?.outputFileType ?? "")
+            //get the new file url
             var url = exportSession?.outputURL
             print(exportSession?.outputURL?.path ?? "")
             do {
                 let data = try Data(contentsOf: url!)
+                //save the file url to be sent to backend
                 BRUH.videos.append(data)
                 print(data)
             } catch {

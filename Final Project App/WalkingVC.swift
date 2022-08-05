@@ -8,11 +8,14 @@
 import UIKit
 import CoreMotion
 
+//view controller which collects data as the user walks around
 class WalkingVC: UIViewController {
     
+    //to have a 3, 2, 1 at the beginning
     var seconds = 3
     var countDownTimer : Timer?
     
+    //variables needed for data collection
     let manager = CMMotionManager()
     var dataMatrix = [[Double]]()
     var dataTimer : Timer?
@@ -23,6 +26,7 @@ class WalkingVC: UIViewController {
     @IBOutlet weak var helperLabel: UILabel!
     @IBOutlet weak var fullScreenBut: UIButton!
     
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(false)
         if Checking.goHome == true{
@@ -30,9 +34,10 @@ class WalkingVC: UIViewController {
         } else {
             dataMatrix = []
             
-//            print(manager.isDeviceMotionAvailable)
+            //            print(manager.isDeviceMotionAvailable)
+            // start the 3 second count down
             countDownTimer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(counter), userInfo: nil, repeats: true)
-
+            
             
         }
     }
@@ -46,11 +51,14 @@ class WalkingVC: UIViewController {
         seconds -= 1
         secondsCounter.text = String(seconds)
         
+        //once the seconds have reached 0
         if seconds == 0 {
+            //hide some labels and show other
             self.secondsCounter.isHidden = true
             self.displayedText.isHidden = false
             countDownTimer?.invalidate()
             countDownTimer = nil
+            // after 1 second hide some labels and show other and edit text on screen etc
             Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { _ in
                 self.displayedText.text = "Walk!"
                 self.helperLabel.isHidden = false
@@ -58,10 +66,12 @@ class WalkingVC: UIViewController {
                 self.displayedText.adjustsFontSizeToFitWidth = true
                 self.helperLabel.adjustsFontSizeToFitWidth = true
             }
+            // start collecting data
             startGettingData()
         }
     }
     
+    //MARK: - Data Collection (all code here is the same as in CameraVCNew, look there for commented code)
     func startGettingData() {
         manager.startAccelerometerUpdates()
         manager.startGyroUpdates()
@@ -84,7 +94,7 @@ class WalkingVC: UIViewController {
                 let xH = devMotion.attitude.pitch // =X
                 let yH = devMotion.attitude.roll // =Y
                 let zH = devMotion.attitude.yaw // =Z
-//                print("here ", range)
+                //                print("here ", range)
                 let compiledData = [t, xA, yA, zA, xG, yG, zG, xH, yH, zH]
                 self.dataMatrix.append(compiledData)
                 range += 1
@@ -103,11 +113,11 @@ class WalkingVC: UIViewController {
         manager.stopAccelerometerUpdates()
         manager.stopGyroUpdates()
         manager.stopDeviceMotionUpdates()
-//        for i in 0...(dataMatrix.count-1) {
-//            print(dataMatrix[i][5])
-//        }
+        //        for i in 0...(dataMatrix.count-1) {
+        //            print(dataMatrix[i][5])
+        //        }
         seconds = 1
-//        print(dataMatrix)
+        //        print(dataMatrix)
         BRUH.BRUH.append(dataMatrix)
         self.performSegue(withIdentifier: "goCam", sender: self)
         
